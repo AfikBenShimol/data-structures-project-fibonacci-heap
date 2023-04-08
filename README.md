@@ -15,7 +15,7 @@ Fibonacci Heap include the implementation of the Heap's functionality and the me
 
 | Function                       | Description                                                                                             | Time Complexity |
 |:-------------------------------|:--------------------------------------------------------------------------------------------------------|:----------------|
-| iEmpty()                       | Returns true if and only if the Heap is empty.                                                          | O(1)            |
+| isEmpty()                      | Returns true if and only if the Heap is empty.                                                          | O(1)            |
 | insert(int i)                  | Inserts to the heap new heap node with the key i and returns the new heap node.                         | O(1)            |
 | deleteMin()                    | Removes the node with the minimal key from the heap.                                                    | O(log(n))       | 
 | findMin()                      | Returns the node with the minimal key from the heap.                                                    | O(1)            |
