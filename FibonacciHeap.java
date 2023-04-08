@@ -249,8 +249,21 @@ public class FibonacciHeap
         endListToInsert.next = afterMin;
         afterMin.prev = endListToInsert;
     }
-
-
+    
+    /**
+     * Computes base 2 log
+     * @param bits: the number to take log from
+     * @return log2(bits)
+     * @time complexity: O(1)
+     */
+    private static int binlog(int bits){
+        int log = 0;
+        if((bits & 0xffff0000) != 0) {bits >>>= 16; log = 16;}
+        if(bits >= 256) { bits >>>= 8; log += 8; }
+        if(bits >= 16) { bits >>>= 4; log += 4; }
+        if(bits >= 4) { bits >>>= 2; log += 2; }
+        return log + (bits >>> 1);
+    }
     /**
      * Consolidate trees in the heap until we have a binomial heap
      * @post: updates tree count and link count
@@ -261,7 +274,7 @@ public class FibonacciHeap
         if (this.isEmpty()){
             return;
         }
-        HeapNode[] buckets = new HeapNode[size+1];
+        HeapNode[] buckets = new HeapNode[binlog(size)+1];
 
         int linkCounter = 0;
         HeapNode tree = treeListStart;
